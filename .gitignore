@@ -1,0 +1,10 @@
+/data/
+*.iso
+*.qcow2
+*.vmdk
+*.vdi
+*.vhd
+*.vhdx
+*.img
+*.exe
+*.msi
