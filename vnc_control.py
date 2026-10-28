@@ -44,7 +44,7 @@ def connect(host, port):
     read_exact(sock, name_length)
     pixel_format = struct.pack(">BBBBHHHBBBxxx", 32, 24, 0, 1, 255, 255, 255, 16, 8, 0)
     sock.sendall(b"\x00\x00\x00\x00" + pixel_format)
-    sock.sendall(struct.pack(">BBHi", 2, 0, 1, 0))
+    sock.sendall(struct.pack(">BBHii", 2, 0, 2, 0, -223))
     return sock, width, height
 
 
@@ -63,19 +63,31 @@ KEYS = {
     "pageup": 0xFF55,
     "pagedown": 0xFF56,
     "f8": 0xFFC5,
+    "f4": 0xFFC1,
     "super": 0xFFEB,
     "ctrl": 0xFFE3,
     "alt": 0xFFE9,
     "delete": 0xFFFF,
+    "shift": 0xFFE1,
 }
 
 
 def send_key(sock, key):
+    shifted = dict(zip('~!@#$%^&*()_+{}|:"<>?', '`1234567890-=[]\\;\',./'))
+    shift = len(key) == 1 and (key in shifted or key.isupper())
+    if shift:
+        key = shifted.get(key, key)
     code = KEYS.get(key.lower(), ord(key) if len(key) == 1 else None)
     if code is None:
         raise ValueError(f"Unknown key: {key}")
+    if shift:
+        sock.sendall(struct.pack(">BBHI", 4, 1, 0, KEYS["shift"]))
+        time.sleep(0.04)
     for down in (1, 0):
         sock.sendall(struct.pack(">BBHI", 4, down, 0, code))
+        time.sleep(0.04)
+    if shift:
+        sock.sendall(struct.pack(">BBHI", 4, 0, 0, KEYS["shift"]))
         time.sleep(0.04)
 
 
@@ -112,17 +124,22 @@ def capture(sock, width, height):
         if kind != 0:
             raise ValueError(f"Unexpected VNC message {kind}")
         count = struct.unpack(">H", read_exact(sock, 3)[1:3])[0]
+        resized = False
         for _ in range(count):
             x, y, w, h, encoding = struct.unpack(">HHHHi", read_exact(sock, 12))
             if encoding == -223:
                 width, height = w, h
                 canvas = Image.new("RGB", (width, height))
+                resized = True
             elif encoding == 0:
                 raw = read_exact(sock, w * h * 4)
                 tile = Image.frombytes("RGB", (w, h), raw, "raw", "BGRX")
                 canvas.paste(tile, (x, y))
             else:
                 raise ValueError(f"Unexpected VNC encoding {encoding}")
+        if resized:
+            sock.sendall(struct.pack(">BBHHHH", 3, 0, 0, 0, width, height))
+            continue
         return canvas
 
 

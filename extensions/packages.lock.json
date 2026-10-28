@@ -1,0 +1,147 @@
+{
+  "target_labview": "2017 32-bit",
+  "roots": {
+    "jdp_science_jsontext": "1.9.1.125",
+    "lava_lib_json_api": "1.5.5.41",
+    "jki_lib_rest_client": "1.3.3.25"
+  },
+  "packages": [
+    {
+      "name": "jdp_science_jsontext",
+      "version": "1.9.1.125",
+      "url": "https://download.ni.com/evaluation/labview/lvtn/vipm/packages/jdp_science_jsontext/jdp_science_jsontext-1.9.1.125.vip",
+      "md5": "1eb6255ec31ab431fe7da7aa2a4beeac",
+      "labview_constraint": "LabVIEW>=17.0",
+      "dependencies": [
+        [
+          "jdp_science_lib_common_utilities",
+          ">=1.4.0.17"
+        ]
+      ],
+      "filename": "jdp_science_jsontext-1.9.1.125.vip",
+      "bytes": 3523812,
+      "sha256": "d80914ad44992a5bf2d895439ce87a948475e492a9652a878ed691d541ddb082"
+    },
+    {
+      "name": "jdp_science_lib_common_utilities",
+      "version": "1.4.2.19",
+      "url": "https://download.ni.com/evaluation/labview/lvtn/vipm/packages/jdp_science_lib_common_utilities/jdp_science_lib_common_utilities-1.4.2.19.vip",
+      "md5": "5e3f4852a6b7254c7ecf88d64da203f5",
+      "labview_constraint": "LabVIEW>=13.0",
+      "dependencies": [],
+      "filename": "jdp_science_lib_common_utilities-1.4.2.19.vip",
+      "bytes": 263234,
+      "sha256": "f3bfe18f75fd5485c398a41e4328c75eadab267666af69f3f99ea17dd3b7a49a"
+    },
+    {
+      "name": "jki_lib_rest_client",
+      "version": "1.3.3.25",
+      "url": "https://s3-us-west-1.amazonaws.com/jki-vi-package-network/packages/packages/jki_lib_rest_client/jki_lib_rest_client-1.3.3.25.vip",
+      "md5": "b9f4cafb855f82f214ceaa7090c7b17f",
+      "labview_constraint": "LabVIEW>=13.0",
+      "dependencies": [],
+      "filename": "jki_lib_rest_client-1.3.3.25.vip",
+      "bytes": 439342,
+      "sha256": "e8ed4201e35e0241ff6d2af7d529de988fc83ae3393fe9f0a04b453113bb7a94"
+    },
+    {
+      "name": "lava_lib_json_api",
+      "version": "1.5.5.41",
+      "url": "https://s3-us-west-1.amazonaws.com/jki-vi-package-network/packages/packages/lava_lib_json_api/lava_lib_json_api-1.5.5.41.vip",
+      "md5": "ba7b12833556fd72c0be534893b32fa9",
+      "labview_constraint": "LabVIEW>=13.0",
+      "dependencies": [
+        [
+          "oglib_array",
+          ">=4.1.0.13"
+        ],
+        [
+          "oglib_error",
+          ">=4.2.0.23"
+        ],
+        [
+          "oglib_lvdata",
+          ">=4.2.0.21"
+        ],
+        [
+          "oglib_string",
+          ">=4.1.0.12"
+        ]
+      ],
+      "filename": "lava_lib_json_api-1.5.5.41.vip",
+      "bytes": 1711685,
+      "sha256": "0ae1f9f40572c3d71f235f1a7b24b3258c6f5f058306f9ddce0cb510d89e0fda"
+    },
+    {
+      "name": "oglib_array",
+      "version": "4.1.1.14",
+      "url": "https://s3-us-west-1.amazonaws.com/jki-vi-package-network/packages/packages/oglib_array/oglib_array-4.1.1.14.vip",
+      "md5": "8a34dba7d0a58224527a048bbb4da6b4",
+      "labview_constraint": "LabVIEW>=9.0",
+      "dependencies": [
+        [
+          "oglib_error",
+          ">=2.0"
+        ],
+        [
+          "oglib_lvdata",
+          ">=2.0"
+        ],
+        [
+          "oglib_string",
+          ">=2.6"
+        ]
+      ],
+      "filename": "oglib_array-4.1.1.14.vip",
+      "bytes": 3921161,
+      "sha256": "420edb9eb1dea27a3914fecc82bf9415020de0e761ae390c08369a150bb3220e"
+    },
+    {
+      "name": "oglib_error",
+      "version": "4.2.0.23",
+      "url": "https://s3-us-west-1.amazonaws.com/jki-vi-package-network/packages/packages/oglib_error/oglib_error-4.2.0.23.vip",
+      "md5": "ddfa60d1573ca29dd9f356fd4160fe6a",
+      "labview_constraint": "LabVIEW>=9.0",
+      "dependencies": [],
+      "filename": "oglib_error-4.2.0.23.vip",
+      "bytes": 75263,
+      "sha256": "323d29123eefd5b8e0e6c318336657ec109c367db5bc5c4f6a7e6bccdef46c1e"
+    },
+    {
+      "name": "oglib_lvdata",
+      "version": "5.0.0.27",
+      "url": "https://s3-us-west-1.amazonaws.com/jki-vi-package-network/packages/packages/oglib_lvdata/oglib_lvdata-5.0.0.27.vip",
+      "md5": "65894da71e362e41e0eea9833b1a0281",
+      "labview_constraint": "LabVIEW>=13.0",
+      "dependencies": [
+        [
+          "oglib_error",
+          ">=4.2.0.23"
+        ]
+      ],
+      "filename": "oglib_lvdata-5.0.0.27.vip",
+      "bytes": 643032,
+      "sha256": "9bd2ff538d43489dda0d807a032e5d925b4e163669343e8a2507b47360104b7a"
+    },
+    {
+      "name": "oglib_string",
+      "version": "5.0.0.25",
+      "url": "https://s3-us-west-1.amazonaws.com/jki-vi-package-network/packages/packages/oglib_string/oglib_string-5.0.0.25.vip",
+      "md5": "5dc53f9557b86b6635b95daceee68a30",
+      "labview_constraint": "LabVIEW>=13.0",
+      "dependencies": [
+        [
+          "oglib_error",
+          ">=4.2.0.23"
+        ],
+        [
+          "oglib_lvdata",
+          ">=4.1.0.16"
+        ]
+      ],
+      "filename": "oglib_string-5.0.0.25.vip",
+      "bytes": 236497,
+      "sha256": "a8cda71becbc574a561287b9e075b2d5d79857bdb54de8386601e40b810d1c62"
+    }
+  ]
+}

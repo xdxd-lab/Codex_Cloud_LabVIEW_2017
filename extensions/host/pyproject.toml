@@ -1,0 +1,18 @@
+[project]
+name = "labview-cloud-tools"
+version = "0.1.0"
+description = "Linux companion tools for a legacy LabVIEW 2017 VM"
+requires-python = ">=3.12"
+dependencies = [
+    "ipykernel>=7.4.0",
+    "jupyterlab>=4.6.4",
+    "matplotlib>=3.11.2",
+    "mcp-server-fetch>=2026.10.24",
+    "mcp-server-git>=2026.10.19",
+    "openai>=3.40.0",
+    "openpyxl>=3.1.5",
+    "pandas>=3.1.0",
+    "pdfplumber>=0.11.10",
+    "pypdf>=6.21.3",
+    "reportlab>=5.1.0",
+]

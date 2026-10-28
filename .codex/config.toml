@@ -1,0 +1,23 @@
+# Start Codex in this repository root. These are local companion tools.
+[mcp_servers.labview_filesystem]
+command = "sh"
+args = ["extensions/run-mcp.sh", "filesystem"]
+
+[mcp_servers.labview_git]
+command = "sh"
+args = ["extensions/run-mcp.sh", "git"]
+
+[mcp_servers.labview_fetch]
+command = "sh"
+args = ["extensions/run-mcp.sh", "fetch"]
+
+[mcp_servers.labview_memory]
+command = "sh"
+args = ["extensions/run-mcp.sh", "memory"]
+
+[mcp_servers.labview_sequential_thinking]
+command = "sh"
+args = ["extensions/run-mcp.sh", "sequential-thinking"]
+
+[mcp_servers.openaiDeveloperDocs]
+url = "https://developers.openai.com/mcp"
