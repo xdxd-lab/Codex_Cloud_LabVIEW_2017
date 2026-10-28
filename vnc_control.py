@@ -58,7 +58,15 @@ KEYS = {
     "down": 0xFF54,
     "left": 0xFF51,
     "right": 0xFF53,
+    "home": 0xFF50,
+    "end": 0xFF57,
+    "pageup": 0xFF55,
+    "pagedown": 0xFF56,
     "f8": 0xFFC5,
+    "super": 0xFFEB,
+    "ctrl": 0xFFE3,
+    "alt": 0xFFE9,
+    "delete": 0xFFFF,
 }
 
 
@@ -75,6 +83,19 @@ def send_click(sock, x, y):
     sock.sendall(struct.pack(">BBHH", 5, 1, x, y))
     time.sleep(0.1)
     sock.sendall(struct.pack(">BBHH", 5, 0, x, y))
+
+
+def send_chord(sock, chord):
+    names = chord.lower().split("+")
+    codes = [KEYS.get(name, ord(name) if len(name) == 1 else None) for name in names]
+    if None in codes:
+        raise ValueError(f"Unknown chord: {chord}")
+    for code in codes:
+        sock.sendall(struct.pack(">BBHI", 4, 1, 0, code))
+        time.sleep(0.04)
+    for code in reversed(codes):
+        sock.sendall(struct.pack(">BBHI", 4, 0, 0, code))
+        time.sleep(0.04)
 
 
 def capture(sock, width, height):
@@ -111,6 +132,8 @@ def main():
     parser.add_argument("--host", default="127.0.0.1")
     parser.add_argument("--port", type=int, default=5900)
     parser.add_argument("--key", action="append", default=[])
+    parser.add_argument("--text", action="append", default=[])
+    parser.add_argument("--chord", action="append", default=[])
     parser.add_argument("--click", nargs=2, type=int, action="append", default=[])
     parser.add_argument("--wait", type=float, default=0)
     args = parser.parse_args()
@@ -118,6 +141,11 @@ def main():
     with sock:
         for key in args.key:
             send_key(sock, key)
+        for value in args.text:
+            for character in value:
+                send_key(sock, character)
+        for chord in args.chord:
+            send_chord(sock, chord)
         for x, y in args.click:
             send_click(sock, x, y)
         if args.wait:
