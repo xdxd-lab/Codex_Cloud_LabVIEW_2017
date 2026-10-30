@@ -1,0 +1,16 @@
+use strict;
+use warnings;
+use IO::Socket::INET;
+$SIG{ALRM} = sub { die "Timed out waiting for the Windows bridge\n" };
+alarm 240;
+my $line = <STDIN>;
+defined($line) && length($line) <= 1048576 or die "Invalid bridge request\n";
+my $server = IO::Socket::INET->new(LocalAddr => '127.0.0.1', LocalPort => 18765, Listen => 1, ReuseAddr => 1, Proto => 'tcp') or die "Cannot start bridge listener: $!\n";
+my $client = $server->accept() or die "Cannot accept guest connection: $!\n";
+$client->autoflush(1);
+print $client $line or die "Cannot send bridge request: $!\n";
+my $reply = <$client>;
+defined($reply) && length($reply) <= 1048576 or die "Invalid bridge response\n";
+print STDOUT $reply;
+close $client;
+close $server;

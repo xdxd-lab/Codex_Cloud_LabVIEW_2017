@@ -1,0 +1,20 @@
+{
+  "windows": {
+    "product": "Windows 7 Professional SP1 x64 English",
+    "filename": "windows7-x64.iso",
+    "original_filename": "en_windows_7_professional_with_sp1_x64_dvd_u_676939.iso",
+    "bytes": 3320903680,
+    "sha256": "3dae1a531b90fa72e59b4a86b20216188d398c8c070da4a5c5a44fe08b1b6e55",
+    "source_page": "https://buzzheavier.com/jncf1brbtf1a",
+    "hash_reference": "https://files.rg-adguard.net/file/11ad6502-c2aa-261c-8c3f-c81477b21dd2",
+    "notes": "Historical third-party mirror, not a current Microsoft download. Downloaded bytes matched the published original SHA-256. Product activation is separate."
+  },
+  "labview": {
+    "product": "LabVIEW 2017 SP1 English 32-bit",
+    "filename": "2017sp1LV-WinEng_VIPMfix.zip",
+    "bytes": 1525390524,
+    "sha256": "bf32398011c09fc59004dd3087276f414e0b2cc9e3c1c4291c12aa9b2e7f11c0",
+    "source": "https://download.ni.com/support/softlib/labview/labview_development_system/2017%20SP1/2017sp1LV-WinEng_VIPMfix.zip",
+    "notes": "Official NI archive; ZIP CRC check passed. buildInfo.txt reports lvVersion=17.0.1 and LV_Eng_32_ComponentID=156. SHA-256 was computed locally, not independently compared with an NI-published digest. NI Device Drivers explicitly excluded in installer."
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "name": "labview-cloud-companion-tools",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Local MCP reference servers and browser tooling for the Linux companion host",
+  "dependencies": {
+    "@modelcontextprotocol/server-filesystem": "2.0.1",
+    "@modelcontextprotocol/server-memory": "2.0.0",
+    "@modelcontextprotocol/server-sequential-thinking": "2.0.0",
+    "@playwright/cli": "0.1.22",
+    "playwright": "1.64.1"
+  }
+}

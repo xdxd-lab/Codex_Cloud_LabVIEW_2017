@@ -1,0 +1,17 @@
+/data/
+*.iso
+*.qcow2
+*.vmdk
+*.vdi
+*.vhd
+*.vhdx
+*.img
+*.exe
+*.msi
+**/__pycache__/
+**/node_modules/
+**/.venv/
+/.local/
+/workspace-data/
+/artifacts/
+*.vip
